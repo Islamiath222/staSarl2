@@ -1,7 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Linkedin, } from 'lucide-react';
+import { FaFacebook, FaInstagram, FaLinkedin, FaTiktok } from 'react-icons/fa';
+import { Helmet } from 'react-helmet';
+import { FaCertificate, FaLeaf, FaHandshake } from 'react-icons/fa';
+
+
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -31,14 +35,14 @@ const Index = () => {
         contact: 'Contact'
       },
       hero: {
-        title: 'Société de Transformation Alimentaire',
-        subtitle: 'Excellence dans la transformation et l\'emballage de produits alimentaires de qualité',
+        title: 'Société de Transformation Alimentaire Sarl',
+        subtitle: 'Excellence dans la transformation de produits alimentaires de qualité',
         tagline: 'Fraîcheur • Qualité • Confiance',
         cta: 'Découvrir Nos Produits'
       },
       welcome: {
         title: 'Bienvenue chez STA',
-        text: 'STA s\'engage à transformer et emballer des produits alimentaires de la plus haute qualité sous nos marques Fruitel et Petit Plaisir. Notre mission est de vous offrir des produits naturels, frais et savoureux.'
+        text: 'STA s\'engage à transformer des produits alimentaires de la plus haute qualité sous nos marques Fruitel et Petit Plaisir. Notre mission est de vous offrir des produits naturels, frais et savoureux.'
       },
       brands: {
         title: 'Nos Marques',
@@ -78,14 +82,14 @@ const Index = () => {
         contact: 'Contact'
       },
       hero: {
-        title: 'Food Processing Company',
+        title: 'Société de Transformation Alimentaire Sarl',
         subtitle: 'Excellence in processing and packaging high-quality food products',
         tagline: 'Freshness • Quality • Trust',
         cta: 'Discover Our Products'
       },
       welcome: {
         title: 'Welcome to STA',
-        text: 'For years, STA has been committed to processing and packaging the highest quality food products under our Fruitel and Petit Plaisir brands. Our mission is to offer you natural, fresh and tasty products.'
+        text: 'STA has been committed to processing and packaging the highest quality food products under our Fruitel and Petit Plaisir brands. Our mission is to offer you natural, fresh and tasty products.'
       },
       brands: {
         title: 'Our Brands',
@@ -114,53 +118,73 @@ const Index = () => {
         }
       },
       footer: {
-        text: '© 2024 Food Processing Company. All rights reserved.'
+        text: '© 2024 Société de Transformation Alimentaire Sarl. All rights reserved.'
       }
     }
   };
 
   const t = translations[language];
+  
+
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Fixed Social Media Icons */}
-      <div className="fixed left-4 top-1/2 transform -translate-y-1/2 z-50 flex flex-col gap-4">
-        <a 
-          href="https://facebook.com" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white hover:bg-orange-600 hover:scale-110 transition-all duration-300 shadow-lg"
-        >
-          <Facebook size={20} />
-        </a>
-        <a 
-          href="https://instagram.com" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white hover:bg-orange-600 hover:scale-110 transition-all duration-300 shadow-lg"
-        >
-          <Instagram size={20} />
-        </a>
-        <a 
-          href="https://linkedin.com" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white hover:bg-orange-600 hover:scale-110 transition-all duration-300 shadow-lg"
-        >
-          <Linkedin size={20} />
-        </a>
-      </div>
+     <div className="min-h-screen bg-white">
+    <Helmet>
+              <title>{language === 'fr' ? 'À Propos - STA' : 'About Us - STA'}</title>
+              <meta name="description" content="Découvrez l’histoire, la mission, et les valeurs de STA, votre expert en transformation alimentaire naturelle." />
+            </Helmet>
+
+       {/* Fixed Social Media Icons */}
+       <div className="fixed left-4 top-1/2 transform -translate-y-1/2 z-50 flex flex-col gap-4">
+         <a 
+           href="https://www.facebook.com/share/16krEbxqqn/?mibextid=wwXIfr" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white hover:bg-orange-600 hover:scale-110 transition-all duration-300 shadow-lg"
+         >
+           <FaFacebook size={20} />
+         </a>
+         <a 
+           href="https://instagram.com" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white hover:bg-orange-600 hover:scale-110 transition-all duration-300 shadow-lg"
+         >
+           <FaInstagram size={20} />
+         </a>
+         <a 
+           href="https://linkedin.com" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white hover:bg-orange-600 hover:scale-110 transition-all duration-300 shadow-lg"
+         >
+           <FaLinkedin size={20} />
+         </a>
+         <a 
+           href="https://www.tiktok.com/@petit_plaisir1?_t=ZM-8xWsRsVPz4a&_r=1" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white hover:bg-orange-600 hover:scale-110 transition-all duration-300 shadow-lg"
+         >
+             <FaTiktok size={20} />
+         </a>
+         </div>
+  
+  
 
       {/* Header */}
      <header className="bg-white shadow-md fixed w-full top-0 z-40">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center">
          <div className="h-full flex items-center mr-4">
+  <header className="h-16 flex items-center px-4 bg-white shadow">
   <img
-    src="/images/Logo.png"
+    src="/images/logo3.png"
     alt="STA Logo"
-    className="h-full max-h-14 w-auto object-contain"
+    className="h-20 w-auto object-contain"
   />
+</header>
+
 </div>
 
 
@@ -267,64 +291,86 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center text-gray-800 mb-16">{t.brands.title}</h2>
           <div className="grid md:grid-cols-2 gap-12">
-            {/* Fruitel */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="h-64 bg-gradient-to-r from-orange-400 to-yellow-400 flex items-center justify-center">
-                <div className="w-32 h-32 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">
-                  <span className="text-white text-2xl font-bold">FRUITEL</span>
-                </div>
-              </div>
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">{t.brands.fruitel.title}</h3>
-                <p className="text-gray-600">{t.brands.fruitel.description}</p>
-              </div>
-            </div>
+            
+          {/* Petit Plaisir */}
+      <Link to="/brands#petitplaisir" className="block">
+  <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+    <div className="h-64 bg-gradient-to-r from-green-400 to-blue-400 flex items-center justify-center">
+      <div className="w-32 h-32 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">
+      <img src="/images/PP8.png" className="h-[200px] w-auto" />
 
-            {/* Petit Plaisir */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="h-64 bg-gradient-to-r from-green-400 to-blue-400 flex items-center justify-center">
-                <div className="w-32 h-32 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">
-                  <span className="text-white text-lg font-bold text-center">PETIT<br/>PLAISIR</span>
-                </div>
-              </div>
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">{t.brands.petitPlaisir.title}</h3>
-                <p className="text-gray-600">{t.brands.petitPlaisir.description}</p>
-              </div>
-            </div>
+
+
+
+      </div>
+    </div>
+    <div className="p-8">
+      <h3 className="text-2xl font-bold text-gray-800 mb-4">{t.brands.petitPlaisir.title}</h3>
+      <p className="text-gray-600">{t.brands.petitPlaisir.description}</p>
+    </div>
+  </div>
+</Link>
+
+
+      {/* Fruitel */}
+      <Link to="/brands#fruitel" className="block">
+      <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+        <div className="h-64 bg-gradient-to-r from-orange-400 to-yellow-400 flex items-center justify-center">
+          <div className="w-32 h-32 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">
+           <img src="/images/frui.png" className="h-[200px] w-auto" />
+
+
           </div>
         </div>
-      </section>
+        <div className="p-8">
+          <h3 className="text-2xl font-bold text-gray-800 mb-4">{t.brands.fruitel.title}</h3>
+          <p className="text-gray-600">{t.brands.fruitel.description}</p>
+        </div>
+      </div></Link>
+
+    </div>
+  </div>
+</section>
+
+
 
       {/* Values Section */}
-      <section className="py-20 bg-green-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center text-gray-800 mb-16">{t.values.title}</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-2xl font-bold">Q</span>
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">{t.values.quality.title}</h3>
-              <p className="text-gray-600">{t.values.quality.text}</p>
-            </div>
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-2xl font-bold">N</span>
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">{t.values.natural.title}</h3>
-              <p className="text-gray-600">{t.values.natural.text}</p>
-            </div>
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-2xl font-bold">T</span>
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">{t.values.trust.title}</h3>
-              <p className="text-gray-600">{t.values.trust.text}</p>
-            </div>
-          </div>
+<section className="py-20 bg-green-50">
+  <div className="container mx-auto px-4">
+    <h2 className="text-4xl font-bold text-center text-gray-800 mb-16">{t.values.title}</h2>
+    <div className="grid md:grid-cols-3 gap-8">
+      
+      {/* Quality */}
+      <div className="text-center p-6">
+        <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <FaCertificate className="text-white text-2xl" />
         </div>
-      </section>
+        <h3 className="text-xl font-bold text-gray-800 mb-4">{t.values.quality.title}</h3>
+        <p className="text-gray-600">{t.values.quality.text}</p>
+      </div>
+
+      {/* Natural */}
+      <div className="text-center p-6">
+        <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <FaLeaf className="text-white text-2xl" />
+        </div>
+        <h3 className="text-xl font-bold text-gray-800 mb-4">{t.values.natural.title}</h3>
+        <p className="text-gray-600">{t.values.natural.text}</p>
+      </div>
+
+      {/* Transparency / Trust */}
+      <div className="text-center p-6">
+        <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+          <FaHandshake className="text-white text-2xl" />
+        </div>
+        <h3 className="text-xl font-bold text-gray-800 mb-4">{t.values.trust.title}</h3>
+        <p className="text-gray-600">{t.values.trust.text}</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-12">
@@ -359,16 +405,20 @@ const Index = () => {
             <div>
               <h4 className="font-bold text-lg mb-4">{language === 'fr' ? 'Suivez-nous' : 'Follow Us'}</h4>
               <div className="flex space-x-4">
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-400 transition-colors">
-                  <Facebook size={24} />
+                <a href="https://www.facebook.com/share/16krEbxqqn/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-400 transition-colors">
+                  <FaFacebook size={24} />
                 </a>
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-400 transition-colors">
-                  <Instagram size={24} />
+                  <FaInstagram size={24} />
                 </a>
                 <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-400 transition-colors">
-                  <Linkedin size={24} />
+                  <FaLinkedin size={24} />
                 </a>
-              </div>
+                <a href="https://www.tiktok.com/@petit_plaisir1?_t=ZM-8xWsRsVPz4a&_r=1" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-orange-400 transition-colors">
+                <FaTiktok size={24} />
+                </a>
+
+</div>
             </div>
           </div>
           <div className="border-t border-gray-700 mt-8 pt-8 text-center">

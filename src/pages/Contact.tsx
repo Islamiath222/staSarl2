@@ -1,7 +1,10 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Linkedin, ArrowLeft, MapPin, Phone, Mail } from 'lucide-react';
+import { ArrowLeft, MapPin, Phone, Mail } from 'lucide-react';
+import { FaFacebook, FaInstagram, FaLinkedin, FaTiktok } from 'react-icons/fa';
+import { Helmet } from 'react-helmet';
+
 
 const Contact = () => {
   const [language, setLanguage] = useState('fr');
@@ -130,34 +133,55 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Fixed Social Media Icons */}
-      <div className="fixed left-4 top-1/2 transform -translate-y-1/2 z-50 flex flex-col gap-4">
-        <a 
-          href="https://www.facebook.com/PetitPlaisir" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white hover:bg-orange-600 hover:scale-110 transition-all duration-300 shadow-lg"
-        >
-          <Facebook size={20} />
-        </a>
-        <a 
-          href="https://instagram.com" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white hover:bg-orange-600 hover:scale-110 transition-all duration-300 shadow-lg"
-        >
-          <Instagram size={20} />
-        </a>
-        <a 
-          href="https://linkedin.com" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white hover:bg-orange-600 hover:scale-110 transition-all duration-300 shadow-lg"
-        >
-          <Linkedin size={20} />
-        </a>
+   <div className="min-h-screen bg-white">
+     <Helmet>
+      <title>{language === 'fr' ? 'À Propos - STA' : 'About Us - STA'}</title>
+      <meta name="description" content="Découvrez l’histoire, la mission, et les valeurs de STA, votre expert en transformation alimentaire naturelle." />
+    </Helmet>
+     {/* Fixed Social Media Icons */}
+     <div className="fixed left-4 top-1/2 transform -translate-y-1/2 z-50 flex flex-col gap-4">
+       <a 
+         href="https://www.facebook.com/share/16krEbxqqn/?mibextid=wwXIfr" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white hover:bg-orange-600 hover:scale-110 transition-all duration-300 shadow-lg"
+       >
+         <FaFacebook size={20} />
+       </a>
+       <a 
+         href="https://instagram.com" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white hover:bg-orange-600 hover:scale-110 transition-all duration-300 shadow-lg"
+       >
+         <FaInstagram size={20} />
+       </a>
+       <a 
+         href="https://linkedin.com" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white hover:bg-orange-600 hover:scale-110 transition-all duration-300 shadow-lg"
+       >
+         <FaLinkedin size={20} />
+       </a>
+       <a 
+         href="https://www.tiktok.com/@petit_plaisir1?_t=ZM-8xWsRsVPz4a&_r=1" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white hover:bg-orange-600 hover:scale-110 transition-all duration-300 shadow-lg"
+       >
+         <FaTiktok size={20} />
+       </a>
       </div>
+<a 
+  href="https://www.tiktok.com/@yourusername" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  className="text-gray-400 hover:text-orange-400 transition-colors"
+>
+  <FaTiktok size={24} />
+</a>
+
 
       {/* Header */}
      <header className="bg-white shadow-md fixed w-full top-0 z-40">
