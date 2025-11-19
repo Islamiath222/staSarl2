@@ -1,0 +1,56 @@
+import React, { createContext, useContext, useState, useEffect } from 'react';
+
+const defaultLang = localStorage.getItem('lang') || 'fr'; // Get from localStorage or default to 'fr'
+
+const translations: Record<string, any> = {
+  en: {
+    home: "Home",
+    about: "About Us",
+    contact: "Contact Us",
+    // Add all your translations here
+  },
+  fr: {
+    home: "Accueil",
+    about: "À propos",
+    contact: "Contactez-nous",
+    // Add all your translations here
+  },
+};
+
+type TranslationContextType = {
+  lang: string;
+  setLang: (lang: string) => void;
+  t: Record<string, string>;
+};
+
+const TranslationContext = createContext<TranslationContextType>({
+  lang: defaultLang,
+  setLang: () => {},
+  t: translations[defaultLang],
+});
+
+export const TranslationProvider = ({ children }: { children: React.ReactNode }) => {
+  const [lang, setLangState] = useState(defaultLang);
+
+  const setLang = (newLang: string) => {
+    localStorage.setItem('lang', newLang);
+    setLangState(newLang);
+  };
+
+  const t = translations[lang] || translations.fr;
+
+  useEffect(() => {
+    const savedLang = localStorage.getItem('lang');
+    if (savedLang && savedLang !== lang) {
+      setLangState(savedLang);
+    }
+  }, []);
+
+  return (
+    <TranslationContext.Provider value={{ lang, setLang, t }}>
+      {children}
+    </TranslationContext.Provider>
+  );
+};
+
+export const useTranslation = () => useContext(TranslationContext);
